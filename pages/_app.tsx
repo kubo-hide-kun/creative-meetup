@@ -6,19 +6,15 @@ import { Header } from "components/Header";
 
 const HeaderContainer = styled.div`
   display: flex;
-  position: fixed;
   flex-direction: column;
   justify-content: space-around;
   align-items: center;
-  top: 0;
-  left: 0;
-  right: 0;
-  height: 124px;
 `;
 
 const NavigationContainer = styled.div`
   display: flex;
   align-items: center;
+  margin-bottom: 48px;
 `;
 
 const NavigationItem = styled.a`
@@ -37,7 +33,6 @@ const NavigationItem = styled.a`
 
 const BodyContainer = styled.div`
   position: relative;
-  margin-top: 124px;
 `;
 
 const MyApp = ({ Component, pageProps }: AppProps) => {
@@ -54,17 +49,13 @@ const MyApp = ({ Component, pageProps }: AppProps) => {
             href="https://github.com/kubo-hide-kun/creative-meetup"
             target="_blank"
           >
-            【GitHub】 クライアント
-            <br />
-            Next.js + TS + styled-components
+            クライアント - Next.js
           </NavigationItem>
           <NavigationItem
             href="https://github.com/kubo-hide-kun/creative-meetup-serverless"
             target="_blank"
           >
-            【GitHub】 バックエンド
-            <br />
-            Node.js + Lambda + DynamoDB + ServerlessFramework
+            バックエンド - ServerlessFramework
           </NavigationItem>
         </NavigationContainer>
       </HeaderContainer>
