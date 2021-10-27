@@ -27,7 +27,7 @@ const GenerateResultDiv = styled.div`
   background: #fbf9f5;
   color: #2b546a;
   font-weight: bold;
-  font-size: 2rem;
+  font-size: 1.5rem;
   font-family: Lato, "Hiragino Maru Gothic Pro", "Meiryo UI", Meiryo,
     "MS PGothic", sans-serif;
 `;
