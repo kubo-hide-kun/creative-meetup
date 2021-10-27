@@ -4,6 +4,7 @@ import styled from "styled-components";
 import { BasicBtn } from "components/BasicBtn";
 import { BasicInput } from "components/BasicInput";
 import { useFetch } from "hooks/useFetch";
+import { useInput } from "hooks/useInput";
 
 const Container = styled.div`
   display: flex;
@@ -21,6 +22,7 @@ const GenerateResultDiv = styled.div`
   margin-bottom: 24px;
   padding: 12px;
   border: 1px solid #e1e5e7;
+  border-radius: 4px;
   box-sizing: border-box;
   background: #fbf9f5;
   color: #2b546a;
@@ -41,7 +43,7 @@ const GenerateBtn = styled(BasicBtn)`
 `;
 
 const HOME: React.VFC = () => {
-  const [username, setUserName] = useState("");
+  const { value: username, setValue: setUserName, handleChange } = useInput("");
   const { result, isLoading, startFetch } = useFetch(
     "https://o66nqaepga.execute-api.ap-northeast-1.amazonaws.com/dev/getWord"
   );
@@ -55,14 +57,7 @@ const HOME: React.VFC = () => {
     }
   }, []);
 
-  const handleClickGenerateBtn = (event: ChangeEvent<HTMLInputElement>) => {
-    setUserName(event.currentTarget.value);
-  };
-
   const handleGenerateBtnClick = () => {
-    if (disabled) {
-      return;
-    }
     localStorage.setItem("oekaki-user", username);
     startFetch({
       method: "POST",
@@ -79,7 +74,7 @@ const HOME: React.VFC = () => {
       <NameInput
         value={username}
         placeholder="ユーザー名 (個人が特定できるもの)"
-        onChange={handleClickGenerateBtn}
+        onChange={handleChange}
       />
       <GenerateBtn onClick={handleGenerateBtnClick} disabled={disabled}>
         単語を生成する
