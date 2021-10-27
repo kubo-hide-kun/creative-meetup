@@ -1,4 +1,4 @@
-import { useState, useEffect, useMemo, ChangeEvent } from "react";
+import { useEffect, useMemo } from "react";
 import styled from "styled-components";
 
 import { BasicBtn } from "components/BasicBtn";
@@ -67,10 +67,7 @@ const HOME: React.VFC = () => {
 
   return (
     <Container>
-      <GenerateResultDiv>
-        {isLoading && "ロード中 ..."}
-        {word}
-      </GenerateResultDiv>
+      <GenerateResultDiv>{isLoading ? "ロード中 ..." : word}</GenerateResultDiv>
       <NameInput
         value={username}
         placeholder="ユーザー名 (個人が特定できるもの)"
