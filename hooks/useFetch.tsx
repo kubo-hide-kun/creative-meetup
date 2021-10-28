@@ -1,15 +1,15 @@
 import { useState } from "react";
 
 export const useFetch = (url: string) => {
-  const [result, setResult] = useState<any>(null);
+  const [data, setData] = useState<any>(null);
   const [isLoading, setIsLoading] = useState<boolean>(false);
 
   const startFetch = (init?: RequestInit) => {
     const f = async () => {
       try {
-        const response = await fetch(url, init);
-        const data = await response.json();
-        setResult(data);
+        const _res = await fetch(url, init);
+        const _data = await _res.json();
+        setData(_data);
         setIsLoading(false);
       } catch (error) {
         setIsLoading(false);
@@ -21,7 +21,7 @@ export const useFetch = (url: string) => {
   };
 
   return {
-    result,
+    data,
     isLoading,
     startFetch,
   };

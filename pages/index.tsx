@@ -44,10 +44,10 @@ const GenerateBtn = styled(BasicBtn)`
 
 const HOME: React.VFC = () => {
   const { value: username, setValue: setUserName, handleChange } = useInput("");
-  const { result, isLoading, startFetch } = useFetch(
+  const { data, isLoading, startFetch } = useFetch(
     "https://o66nqaepga.execute-api.ap-northeast-1.amazonaws.com/dev/getWord"
   );
-  const word = useMemo(() => result?.word || "", [result]);
+  const word = useMemo(() => data?.word || "", [data]);
   const disabled = useMemo(() => !username || isLoading, [username, isLoading]);
 
   useEffect(() => {

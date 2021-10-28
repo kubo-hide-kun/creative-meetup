@@ -39,7 +39,7 @@ const MyApp = ({ Component, pageProps }: AppProps) => {
   return (
     <div>
       <Head>
-        <title>単語ジェネレーター</title>
+        <title>お題ジェネレーター</title>
         <link rel="icon" href="/favicon.ico" />
       </Head>
       <HeaderContainer>
