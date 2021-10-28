@@ -28,7 +28,7 @@ export const Header: React.VFC = () => {
   return (
     <HeaderDiv>
       <TitleHead>お題ジェネレーター</TitleHead>
-      <SubTitleHead>運営側で「どのユーザー」に「どのお題」が割り振られたのかが確認します</SubTitleHead>
+      <SubTitleHead>運営側で「どのユーザー」に「どのお題」が割り振られたかを確認します</SubTitleHead>
     </HeaderDiv>
   );
 };
