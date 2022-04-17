@@ -32,48 +32,28 @@ const GenerateResultDiv = styled.div`
     "MS PGothic", sans-serif;
 `;
 
-const NameInput = styled(BasicInput)`
-  width: 92%;
-  max-width: 600px;
-  margin-bottom: 32px;
-`;
-
 const GenerateBtn = styled(BasicBtn)`
   width: 196px;
 `;
 
 const HOME: React.VFC = () => {
-  const { value: username, setValue: setUserName, handleChange } = useInput("");
   const { data, isLoading, startFetch } = useFetch(
     "https://954wheeyrb.execute-api.ap-northeast-1.amazonaws.com/dev/getWord"
   );
-  const word = useMemo(() => data?.word || "", [data]);
-  const disabled = useMemo(() => !username || isLoading, [username, isLoading]);
 
-  useEffect(() => {
-    const beforeName = localStorage.getItem("oekaki-user");
-    if (!!beforeName) {
-      setUserName(beforeName);
-    }
-  }, []);
+  const word = useMemo(() => data?.word || "", [data]);
 
   const handleGenerateBtnClick = () => {
-    localStorage.setItem("oekaki-user", username);
     startFetch({
       method: "POST",
-      body: JSON.stringify({ username }),
+      body: JSON.stringify({ username: 'no-name' }),
     });
   };
 
   return (
     <Container>
       <GenerateResultDiv>{isLoading ? "ロード中 ..." : word}</GenerateResultDiv>
-      <NameInput
-        value={username}
-        placeholder="ユーザー名 (個人が特定できるもの)"
-        onChange={handleChange}
-      />
-      <GenerateBtn onClick={handleGenerateBtnClick} disabled={disabled}>
+      <GenerateBtn onClick={handleGenerateBtnClick}>
         単語を生成する
       </GenerateBtn>
     </Container>

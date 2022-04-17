@@ -11,26 +11,6 @@ const HeaderContainer = styled.div`
   align-items: center;
 `;
 
-const NavigationContainer = styled.div`
-  display: flex;
-  align-items: center;
-  margin-bottom: 48px;
-`;
-
-const NavigationItem = styled.a`
-  margin: 0 24px;
-  color: #2b546a;
-  font-weight: bold;
-  font-size: 1rem;
-  font-family: Lato, "Hiragino Maru Gothic Pro", "Meiryo UI", Meiryo,
-    "MS PGothic", sans-serif;
-  transition: 0.3s;
-  &:hover {
-    color: #30c8d6;
-    text-decoration: none;
-  }
-`;
-
 const BodyContainer = styled.div`
   position: relative;
 `;
@@ -44,20 +24,6 @@ const MyApp = ({ Component, pageProps }: AppProps) => {
       </Head>
       <HeaderContainer>
         <Header />
-        <NavigationContainer>
-          <NavigationItem
-            href="https://github.com/kubo-hide-kun/creative-meetup"
-            target="_blank"
-          >
-            クライアント - Next.js
-          </NavigationItem>
-          <NavigationItem
-            href="https://github.com/kubo-hide-kun/creative-meetup-serverless"
-            target="_blank"
-          >
-            バックエンド - ServerlessFramework
-          </NavigationItem>
-        </NavigationContainer>
       </HeaderContainer>
       <BodyContainer>
         <Component {...pageProps} />
